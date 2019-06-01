@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  //   justify-content: space-around;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+
+  button:nth-child(1) {
+    margin-bottom: 1rem;
+  }
+}
