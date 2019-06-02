@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 })
 
-const CardComponent = ({ increment, decrement, id, it }) => {
+const CardComponent = ({ increment, decrement, id, it, addToShop }) => {
   const classes = useStyles()
   return (
     <Card className={classes.card} raised>
@@ -44,7 +44,7 @@ const CardComponent = ({ increment, decrement, id, it }) => {
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.actions}>
-        <Button size="large" color="secondary" variant="outlined">
+        <Button size="large" color="secondary" variant="outlined" onClick={() => addToShop(id)}>
           Add to card
         </Button>
         <Typography gutterBottom variant="h6" component="h2">

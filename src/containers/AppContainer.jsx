@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import AppComponent from '../components/AppComponent'
+import Header from '../components/Header'
 
 const AppContainer = () => {
   const initialState = [
@@ -7,41 +8,6 @@ const AppContainer = () => {
     { name: 'Galaxy', price: 400, key: 'galaxy', count: 1 },
     { name: 'Xiaomi', price: 560, key: 'xiaomi', count: 1 },
     { name: 'Lenovo', price: 700, key: 'LG', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
     { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
     { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
   ]
@@ -72,7 +38,18 @@ const AppContainer = () => {
       return [...minus]
     })
   }
-  return <AppComponent data={items} increment={increment} decrement={decrement} />
+  const addToShop = index => {}
+  return (
+    <div>
+      <Header />
+      <AppComponent
+        data={items}
+        increment={increment}
+        decrement={decrement}
+        addToShop={addToShop}
+      />
+    </div>
+  )
 }
 
 export default AppContainer
