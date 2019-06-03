@@ -7,7 +7,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 const StyledBadge = withStyles(theme => ({
   badge: {
     top: '50%',
-    right: 0,
+    right: 1,
     // The border color match the background color.
     border: `2px solid ${
       theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[900]
@@ -33,10 +33,10 @@ const Header = ({ allcount, barev, count, selectItems, price, deleteItem }) => {
           {selectItems.map((it, index) => {
             return (
               <div key={it.key + index}>
-                name {it.name}
-                <span style={{ color: 'red' }}> count {it.count}</span>
-                <span style={{ color: 'green' }}> price {it.price}</span>
-                <button onClick={() => deleteItem(index)}>X</button>
+                Name {it.name}
+                <span style={{ color: 'red' }}> Count {it.count}</span>
+                <span style={{ color: 'green' }}> Price {it.price}</span>
+                <button onClick={() => deleteItem(index)}>x</button>
               </div>
             )
           })}

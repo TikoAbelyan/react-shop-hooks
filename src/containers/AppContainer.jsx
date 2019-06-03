@@ -29,8 +29,6 @@ const AppContainer = () => {
     let price = 0
     selectItems.map(it => {
       price = it.price * it.count + price
-
-      // console.log(it.count)
     })
     setItemsPrice(price)
   }

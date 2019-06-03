@@ -4,17 +4,17 @@ header {
   .addShopComponent {
     position: absolute;
     top: 10%;
-    width: 400px;
+    width: 300px;
     height: 400px;
     border: 1px solid;
     transform: translate(0, 10%);
-    background: aqua;
+    background: beige;
     z-index: 1;
+    overflow-x: auto;
   }
 }
 .container {
   display: flex;
-  //   justify-content: space-around;
   align-items: baseline;
   flex-wrap: wrap;
   margin: 2rem 0;
