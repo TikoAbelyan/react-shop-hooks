@@ -12,7 +12,36 @@ const AppContainer = () => {
     { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
   ]
   const [items, setItems] = useState([...initialState])
+  const [selectItems, setSelectedItems] = useState([])
+  const [itemsPrice, setItemsPrice] = useState(null)
+  useEffect(() => {
+    allPrice()
+  }, [selectItems])
+  const addItem = data => {
+    setSelectedItems(prevState => {
+      const state = [...prevState]
+      state.push(data)
+      return [...state]
+    })
+    allPrice()
+  }
+  const allPrice = () => {
+    let price = 0
+    selectItems.map(it => {
+      price = it.price * it.count + price
 
+      // console.log(it.count)
+    })
+    setItemsPrice(price)
+  }
+  const deleteItem = index => {
+    setSelectedItems(prevState => {
+      const state = prevState.filter((it, i) => {
+        return index !== i && it
+      })
+      return [...state]
+    })
+  }
   const increment = index => {
     setItems(prevState => {
       const mutable = prevState.map((it, i) => {
@@ -38,15 +67,29 @@ const AppContainer = () => {
       return [...minus]
     })
   }
-  const addToShop = index => {}
+  const addToShop = index => {
+    console.log(index)
+  }
+  const barev = () => {
+    alert()
+  }
   return (
     <div>
-      <Header />
+      <Header
+        addToShop={addToShop}
+        barev={barev}
+        count={selectItems.length}
+        selectItems={selectItems}
+        price={itemsPrice}
+        setPrice={allPrice}
+        deleteItem={deleteItem}
+      />
       <AppComponent
         data={items}
         increment={increment}
         decrement={decrement}
         addToShop={addToShop}
+        addItem={addItem}
       />
     </div>
   )

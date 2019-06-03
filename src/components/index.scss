@@ -1,6 +1,16 @@
 header {
   display: flex;
   justify-content: flex-end;
+  .addShopComponent {
+    position: absolute;
+    top: 10%;
+    width: 400px;
+    height: 400px;
+    border: 1px solid;
+    transform: translate(0, 10%);
+    background: aqua;
+    z-index: 1;
+  }
 }
 .container {
   display: flex;
