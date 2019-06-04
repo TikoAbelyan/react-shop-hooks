@@ -4,12 +4,54 @@ import Header from '../components/Header'
 
 const AppContainer = () => {
   const initialState = [
-    { name: 'i Phone', price: 500, key: 'iphone', count: 1 },
-    { name: 'Galaxy', price: 400, key: 'galaxy', count: 1 },
-    { name: 'Xiaomi', price: 560, key: 'xiaomi', count: 1 },
-    { name: 'Lenovo', price: 700, key: 'LG', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
-    { name: 'Macbook', price: 1500, key: 'macbook', count: 1 },
+    {
+      name: 'i Phone',
+      price: 500,
+      key: 'iphone',
+      image:
+        'http://www.sarkarinaukrisearch.in/wp-content/uploads/2018/12/whatsapp-dp-images-51.jpg',
+      count: 1,
+    },
+    {
+      name: 'Galaxy',
+      price: 400,
+      key: 'galaxy',
+      image:
+        'http://www.sarkarinaukrisearch.in/wp-content/uploads/2018/12/whatsapp-dp-images-51.jpg',
+      count: 1,
+    },
+    {
+      name: 'Xiaomi',
+      price: 560,
+      key: 'xiaomi',
+      image:
+        'http://www.sarkarinaukrisearch.in/wp-content/uploads/2018/12/whatsapp-dp-images-51.jpg',
+      count: 1,
+    },
+    {
+      name: 'Lenovo',
+      price: 700,
+      key: 'LG',
+      image:
+        'http://www.sarkarinaukrisearch.in/wp-content/uploads/2018/12/whatsapp-dp-images-51.jpg',
+      count: 1,
+    },
+    {
+      name: 'Macbook',
+      price: 1500,
+      key: 'macbook',
+      image:
+        'http://www.sarkarinaukrisearch.in/wp-content/uploads/2018/12/whatsapp-dp-images-51.jpg',
+      count: 1,
+    },
+    {
+      name: 'Macbook',
+      price: 1500,
+      key: 'macbook',
+      image:
+        'http://www.sarkarinaukrisearch.in/wp-content/uploads/2018/12/whatsapp-dp-images-51.jpg',
+      count: 1,
+    },
   ]
   const [items, setItems] = useState([...initialState])
   const [selectItems, setSelectedItems] = useState([])
@@ -21,6 +63,7 @@ const AppContainer = () => {
     setSelectedItems(prevState => {
       const state = [...prevState]
       state.push(data)
+      console.log(state)
       return [...state]
     })
     allPrice()
@@ -65,30 +108,17 @@ const AppContainer = () => {
       return [...minus]
     })
   }
-  const addToShop = index => {
-    console.log(index)
-  }
-  const barev = () => {
-    alert()
-  }
+
   return (
     <div>
       <Header
-        addToShop={addToShop}
-        barev={barev}
         count={selectItems.length}
         selectItems={selectItems}
         price={itemsPrice}
         setPrice={allPrice}
         deleteItem={deleteItem}
       />
-      <AppComponent
-        data={items}
-        increment={increment}
-        decrement={decrement}
-        addToShop={addToShop}
-        addItem={addItem}
-      />
+      <AppComponent data={items} increment={increment} decrement={decrement} addItem={addItem} />
     </div>
   )
 }

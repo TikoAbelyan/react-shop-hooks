@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 })
 
-const CardComponent = ({ increment, decrement, id, it, addToShop, addItem }) => {
+const CardComponent = ({ increment, decrement, id, it, addItem }) => {
   const classes = useStyles()
   return (
     <Card className={classes.card} raised>
@@ -29,7 +29,7 @@ const CardComponent = ({ increment, decrement, id, it, addToShop, addItem }) => 
           component="img"
           alt="Contemplative Reptile"
           height="140"
-          image="http://www.sarkarinaukrisearch.in/wp-content/uploads/2018/12/whatsapp-dp-images-51.jpg"
+          image={it.image}
           title="Contemplative Reptile"
         />
         <CardContent>

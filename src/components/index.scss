@@ -1,9 +1,10 @@
 header {
   display: flex;
   justify-content: flex-end;
+  background: antiquewhite;
   .addShopComponent {
-    position: absolute;
-    top: 10%;
+    position: fixed;
+    top: 0;
     width: 300px;
     height: 400px;
     border: 1px solid;
@@ -11,6 +12,33 @@ header {
     background: beige;
     z-index: 1;
     overflow-x: auto;
+    .layout_category {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 5px;
+    }
+    .bg_shop {
+      display: flex;
+      flex-direction: column;
+      padding: 12px 0 0 0;
+      border-bottom: 1px solid black;
+      .change_at_shop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .bg_shop:hover {
+      background: rgb(163, 162, 162);
+      cursor: default;
+    }
+  }
+  .byAllprice {
+    position: absolute;
+    bottom: unset;
+    right: 32%;
   }
 }
 .container {
