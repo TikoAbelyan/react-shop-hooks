@@ -14,7 +14,7 @@ const StyledBadge = withStyles(theme => ({
     }`,
   },
 }))(Badge)
-const Header = ({ allcount, barev, count, selectItems, price, deleteItem }) => {
+const Header = ({ count, selectItems, price, deleteItem, cardAction, sortItems }) => {
   const [toggle, setToggle] = useState(false)
   useEffect(() => {
     setToggle(true)
@@ -27,7 +27,7 @@ const Header = ({ allcount, barev, count, selectItems, price, deleteItem }) => {
           <ShoppingCartIcon />
         </StyledBadge>
       </IconButton>
-
+      <button onClick={sortItems}>Sort</button>
       {count > 0 && toggle && (
         <div className="addShopComponent">
           <div className="layout_category">
@@ -55,6 +55,13 @@ const Header = ({ allcount, barev, count, selectItems, price, deleteItem }) => {
                   <div>{it.count}</div>
                   <div>{it.price}</div>
                 </div>
+                <button onClick={() => cardAction(index, 'increment')}>+</button>
+                <button
+                  onClick={() => cardAction(index, 'decrement')}
+                  disabled={it.count === 1 ? true : false}
+                >
+                  -
+                </button>
                 <Button
                   size="small"
                   color="secondary"

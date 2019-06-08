@@ -22,7 +22,7 @@ const AppContainer = () => {
     },
     {
       name: 'Xiaomi',
-      price: 560,
+      price: 220,
       key: 'xiaomi',
       image:
         'http://www.sarkarinaukrisearch.in/wp-content/uploads/2018/12/whatsapp-dp-images-51.jpg',
@@ -30,7 +30,7 @@ const AppContainer = () => {
     },
     {
       name: 'Lenovo',
-      price: 700,
+      price: 120,
       key: 'LG',
       image:
         'http://www.sarkarinaukrisearch.in/wp-content/uploads/2018/12/whatsapp-dp-images-51.jpg',
@@ -38,7 +38,7 @@ const AppContainer = () => {
     },
     {
       name: 'Macbook',
-      price: 1500,
+      price: 1400,
       key: 'macbook',
       image:
         'http://www.sarkarinaukrisearch.in/wp-content/uploads/2018/12/whatsapp-dp-images-51.jpg',
@@ -46,7 +46,7 @@ const AppContainer = () => {
     },
     {
       name: 'Macbook',
-      price: 1500,
+      price: 1100,
       key: 'macbook',
       image:
         'http://www.sarkarinaukrisearch.in/wp-content/uploads/2018/12/whatsapp-dp-images-51.jpg',
@@ -59,14 +59,67 @@ const AppContainer = () => {
   useEffect(() => {
     allPrice()
   }, [selectItems])
-  const addItem = data => {
+  const addItem = (data, id) => {
     setSelectedItems(prevState => {
-      const state = [...prevState]
-      state.push(data)
-      console.log(state)
+      const state = prevState.map(it => {
+        const item = { ...it }
+        return item
+      })
+      let condition = false
+      state.map(it => {
+        if (it.name === data.name) {
+          condition = true
+        }
+      })
+      if (condition) {
+        state.map(it => {
+          if (it.name === data.name) {
+            // console.log(it)
+            const item = { ...it }
+            it.count = it.count + data.count
+            return item
+          }
+        })
+      } else {
+        state.push(data)
+      }
+      return state
+    })
+
+    setItems(prevState => {
+      const state = prevState.map((it, i) => {
+        const item = { ...it }
+        if (id === i) {
+          item.count = 1
+        }
+        return item
+      })
       return [...state]
     })
     allPrice()
+  }
+  const sortItems = () => {
+    setItems(prevState => {
+      const state = [...prevState]
+      state.sort((a, b) => {
+        return a.price - b.price
+      })
+      return [...state]
+    })
+  }
+  const cardAction = (index, type) => {
+    setSelectedItems(prevState => {
+      const state = [...prevState]
+      state.map((it, i) => {
+        if (index === i && type === 'increment') {
+          it.count = it.count + 1
+        }
+        if (index === i && type === 'decrement') {
+          it.count = it.count - 1
+        }
+      })
+      return [...state]
+    })
   }
   const allPrice = () => {
     let price = 0
@@ -117,6 +170,8 @@ const AppContainer = () => {
         price={itemsPrice}
         setPrice={allPrice}
         deleteItem={deleteItem}
+        cardAction={cardAction}
+        sortItems={sortItems}
       />
       <AppComponent data={items} increment={increment} decrement={decrement} addItem={addItem} />
     </div>

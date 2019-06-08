@@ -44,7 +44,7 @@ const CardComponent = ({ increment, decrement, id, it, addItem }) => {
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.actions}>
-        <Button size="large" color="secondary" variant="outlined" onClick={() => addItem(it)}>
+        <Button size="large" color="secondary" variant="outlined" onClick={() => addItem(it, id)}>
           Add to card
         </Button>
         <Typography gutterBottom variant="h6" component="h2">
