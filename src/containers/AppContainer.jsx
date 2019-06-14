@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import AppComponent from '../components/AppComponent';
-import Header from '../components/Header';
+import Header from '../components/header';
 import { initialState } from '../utils/utils';
 
 const AppContainer = () => {

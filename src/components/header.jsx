@@ -116,7 +116,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Header = ({ selectedItems, deleteItem, cardAction, onSearch }) => {
+const Header = ({
+  selectedItems,
+  deleteItem,
+  cardAction,
+  onSearch,
+  setPrice,
+}) => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
