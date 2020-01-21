@@ -44,12 +44,12 @@ header {
 .container {
   display: flex;
   flex-direction: column;
-    align-items: center;
+  align-items: center;
   justify-content: center;
-  margin: 5rem 0!important;
+  margin: 5rem 0 !important;
   flex-wrap: wrap;
   margin: 2rem 0;
-  width: 100%
+  width: 100%;
 }
 
 .items {
@@ -66,4 +66,9 @@ header {
   button:nth-child(1) {
     margin-bottom: 1rem;
   }
+}
+.chooseTour {
+  display: grid;
+  grid-template-columns: repeat(5, 100px);
+  grid-auto-rows: 100px;
 }
